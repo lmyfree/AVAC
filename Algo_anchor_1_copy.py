@@ -92,6 +92,14 @@ def algo_qp1(X=None, T=None, Y=None, lambda_=None, d=None, numanchor=None,tt=1):
         sumAlpha1 = 0.0
         part1 = 0
         part2 = 0
+        for ia in np.arange(0, numview-1).reshape(-1):
+            a = alpha1[0][ia]
+            al2 = pow(a, 2)
+            sumAlpha = sumAlpha + al2
+            part1 = part1 + al2 * np.transpose(W[ia]) @ X[ia] @ np.transpose(Z)
+        Unew, __, Vnew = linalg.svd(part1, 0)
+        #     A = (part1/sumAlpha) * inv(Z*Z');
+        A = Unew @ Vnew
         for ia in np.arange(0, numview).reshape(-1):
             # t=np.transpose(A)@ np.transpose(W[ia])@ X[ia]
             a = alpha1[0][ia]
@@ -103,14 +111,6 @@ def algo_qp1(X=None, T=None, Y=None, lambda_=None, d=None, numanchor=None,tt=1):
             part2 = part2 + al2 * (np.transpose(A) @ np.transpose(W[ia]) @ X[ia] + ap * np.transpose(Wt[ia]) @ T[
                 ia])  # al2 * np.transpose(W[ia]) @ X[ia] @ np.transpose(Z)
         Z = np.linalg.inv(sumAlpha1) @ part2  # part2/sumAlpha1
-        for ia in np.arange(0, numview-1).reshape(-1):
-            a = alpha1[0][ia]
-            al2 = pow(a, 2)
-            sumAlpha = sumAlpha + al2
-            part1 = part1 + al2 * np.transpose(W[ia]) @ X[ia] @ np.transpose(Z)
-        Unew, __, Vnew = linalg.svd(part1, 0)
-        #     A = (part1/sumAlpha) * inv(Z*Z');
-        A = Unew @ Vnew
         #  H = 6 * sumAlpha * np.eye(m) + 2 * lambda_ * np.eye(m)
         #  H = (H + np.transpose(H)) / 2
         #  t=[]

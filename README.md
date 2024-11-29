@@ -12,4 +12,3 @@ When clustering Blogcatalog dataset, just run AVACBlogcatalog.py, and you will g
 When clustering WIKI dataset, just run AVACWIKI.py, and you will get the results.
 
 When clustering Flickr dataset, just change the dataset name and run AVACBlogcatalog.py.
-
