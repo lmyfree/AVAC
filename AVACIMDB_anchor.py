@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 from metrics import clustering_metrics
 
+
 warnings.filterwarnings("ignore")
 
 if __name__ == '__main__':

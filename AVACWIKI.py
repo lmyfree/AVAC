@@ -20,6 +20,7 @@ import warnings
 from itertools import product
 warnings.filterwarnings("ignore")
 
+
 if __name__ == '__main__':
 
     # Load data

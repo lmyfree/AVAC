@@ -5,6 +5,7 @@ from sklearn import metrics
 from munkres import Munkres, print_matrix
 import numpy as np
 
+
 class linkpred_metrics():
     def __init__(self, edges_pos, edges_neg):
         self.edges_pos = edges_pos

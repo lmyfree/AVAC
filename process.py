@@ -6,6 +6,7 @@ import sys
 from scipy import sparse
 
 
+
 def prepare_graph_data(adj):
     # adapted from preprocess_adj_bias
     num_nodes = adj.shape[0]

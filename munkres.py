@@ -178,6 +178,7 @@ large value. For example:
 
 Running that program produces:
 
+
     Highest profit through this matrix:
     [5, 9, 1]
     [10, 3, 2]

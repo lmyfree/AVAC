@@ -5,6 +5,7 @@ from scipy import linalg
 from cvxopt import matrix, solvers
 
 
+
 def normalize_data(Y):
     """
     将数据归一化到[0, 1]范围内
